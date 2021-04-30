@@ -27,11 +27,25 @@
 
 #define COLOR_BLACK nvgRGBA(0, 0, 0, 255)
 #define COLOR_BLACK_ALPHA(x) nvgRGBA(0, 0, 0, x)
-#define COLOR_WHITE nvgRGBA(255, 255, 255, 255)
-#define COLOR_WHITE_ALPHA(x) nvgRGBA(255, 255, 255, x)
-#define COLOR_RED_ALPHA(x) nvgRGBA(201, 34, 49, x)
-#define COLOR_YELLOW nvgRGBA(218, 202, 37, 255)
-#define COLOR_RED nvgRGBA(201, 34, 49, 255)
+//define COLOR_GREEN nvgRGBA(0, 255, 0, 255)
+//define COLOR_GREEN_ALPHA(x) nvgRGBA(0, 255, 0, x)
+//define COLOR_WHITE nvgRGBA(255, 255, 255, 255)
+//define COLOR_WHITE_ALPHA(x) nvgRGBA(255, 255, 255, x)
+//define COLOR_RED_ALPHA(x) nvgRGBA(201, 34, 49, x)
+//define COLOR_YELLOW nvgRGBA(218, 202, 37, 255)
+//define COLOR_RED nvgRGBA(201, 34, 49, 255)
+
+// https://coolors.co/26547c-ef476f-ffd166-06d6a0-fcfcfc
+#define COLOR_BLUE nvgRGBA(38, 84, 124, 255)
+#define COLOR_BLUE_ALPHA(x) nvgRGBA(38, 84, 124, x)
+#define COLOR_RED nvgRGBA(239, 71, 111, 255)
+#define COLOR_RED_ALPHA(x) nvgRGBA(239, 71, 111, x)
+#define COLOR_YELLOW nvgRGBA(255, 209, 102, 255)
+#define COLOR_YELLOW_ALPHA(x) nvgRGBA(255, 209, 102, x)
+#define COLOR_GREEN nvgRGBA(6, 214, 160, 255)
+#define COLOR_GREEN_ALPHA(x) nvgRGBA(6, 214, 160, x)
+#define COLOR_WHITE nvgRGBA(252, 252, 252, 255)
+#define COLOR_WHITE_ALPHA(x) nvgRGBA(252, 252, 252, x)
 
 typedef struct Rect {
   int x, y, w, h;
@@ -88,6 +102,24 @@ typedef struct UIScene {
 
   bool is_rhd;
   bool driver_view;
+
+  // @byxorna start
+  int lead_status;
+  float lead_d_rel, lead_v_rel;
+  float angleSteers;
+  bool brakeLights;
+  float angleSteersDes;
+  bool recording;
+  float gpsAccuracyUblox;
+  float altitudeUblox;
+  int engineRPM;
+  bool steerOverride;
+  float output_scale;
+  float steeringTorqueEps;
+  float aEgo;
+  float cpuTemp;
+  int cpuPerc;
+  // @byxorna end
 
   std::string alert_text1;
   std::string alert_text2;

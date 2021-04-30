@@ -131,9 +131,21 @@ static void update_state(UIState *s) {
   UIScene &scene = s->scene;
   if (scene.started && sm.updated("controlsState")) {
     scene.controls_state = sm["controlsState"].getControlsState();
+    // @byxorna start
+    //s->scene.output_scale = scene.controls_state.getLateralControlState().getPidState().getOutput();
+    //s->scene.angleSteersDes = scene.controls_state.getSteeringAngleDesiredDeg();
+    // @byxorna end
   }
   if (sm.updated("carState")) {
     scene.car_state = sm["carState"].getCarState();
+    // @byxorna start
+    //s->scene.steerOverride= scene.car_state.getSteeringPressed();
+    //s->scene.angleSteers = scene.car_state.getSteeringAngleDeg();
+    //s->scene.brakeLights = scene.car_state.getBrakeLights();
+    //s->scene.engineRPM = scene.car_state.getEngineRPM();
+    //s->scene.aEgo = scene.car_state.getAEgo();
+    //s->scene.steeringTorqueEps = scene.car_state.getSteeringTorqueEps();
+    // @byxorna end
   }
   if (sm.updated("radarState")) {
     std::optional<cereal::ModelDataV2::XYZTData::Reader> line;
